@@ -574,7 +574,7 @@ Transfer was self-relayed!
 ```
 
 #  前端bsc <==> monad 跨链请看当前vue项目代码即可
-# my-vue2-app
+# 已部署到线上, 网址  https://hyperlane-crosschain.vercel.app/
 
 ## Project setup
 ```
