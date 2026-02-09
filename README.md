@@ -67,7 +67,7 @@ Hyperlane CLI
 25.0.0
 ```
 
-## 9)初始化
+## 9)创建链配置
 ```  
 root@ubuntu:~/hyperlane-registry# hyperlane registry init
 Hyperlane CLI
@@ -114,7 +114,7 @@ Skipping updating chain bsc at github registry (not supported)
 Now updating chain bsc at filesystem registry at /root/.hyperlane
 Done updating chain bsc at filesystem registry
 ```
-## 10）
+## 10）初始化核心配置
 ```
 root@ubuntu:~/hyperlane-registry# export HYP_KEY='你的私钥不带0x'
 root@ubuntu:~/hyperlane-registry# hyperlane core init 
@@ -150,7 +150,7 @@ Core config is valid, writing to file ./configs/core-config.yaml:
 ✅ Successfully created new core deployment config.
 ```
 
-## 11）
+## 11）部署核心合约
 ```
 root@ubuntu:~/hyperlane-registry# hyperlane core deploy
 Hyperlane CLI
@@ -188,7 +188,7 @@ Error: Deployment cancelled
 ps：由于hyperlane已经部署了bsc与monad的核心，所以我们不用部署了,可参考https://github.com/hyperlane-xyz/hyperlane-registry/tree/main
 ```
 
-## 12）
+## 12） 初始化 Warp Route 配置
 ```
 root@ubuntu:~/hyperlane-registry# hyperlane warp init
 Hyperlane CLI
@@ -253,7 +253,7 @@ Done adding warp route deploy config at filesystem registry
 ✅ Successfully created new warp route deployment config with warp route id: USDT/monad
 ```
 
-## 13）
+## 13）部署 Warp Route
 ```
 root@ubuntu:~/hyperlane-registry# hyperlane warp deploy
 Hyperlane CLI
@@ -393,7 +393,7 @@ Done adding warp route at filesystem registry
 	- Gas required for warp deploy on monad: 0.7870422 MON
 ```
 
-## 14）
+## 14）授权给warp_router
 ```
 root@ubuntu:~/hyperlane-registry# export HYP_KEY='52243d8e2de333653d101753c402d369a368ccb5601b40e29b541dc9364a9c2e'
 root@ubuntu:~/hyperlane-registry# cast send 0x55d398326f99059fF775485246999027B3197955 \
@@ -422,7 +422,7 @@ blobGasUsed
 to                   0x55d398326f99059fF775485246999027B3197955
 ```
 
-## 15）
+## 15）执行erc20跨链转账，bsc=>monad
 ```
 root@ubuntu:~/hyperlane-registry# hyperlane warp send \
   --symbol USDT \
@@ -473,7 +473,7 @@ Transfer was self-relayed!
 ✅ Successfully sent messages for chains: bsc ➡️ monad
 ```
 
-## 16)
+## 16) 执行erc20跨链转账，monad=>bsc
 ```
 root@ubuntu:~/hyperlane-registry# hyperlane warp send \
   --symbol USDT \
