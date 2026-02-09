@@ -392,6 +392,7 @@ Done adding warp route at filesystem registry
 	- Gas required for warp deploy on bsc: 0.00829895 BNB
 	- Gas required for warp deploy on monad: 0.7870422 MON
 ```
+## ps:如果是原生的主币的话，源链选择native，目标链选synthetic
 
 ## 14）授权给warp_router
 ```
@@ -421,6 +422,7 @@ blobGasPrice
 blobGasUsed          
 to                   0x55d398326f99059fF775485246999027B3197955
 ```
+## ps:原生主币跨链不需要授权给warp_router，直接转账即可
 
 ## 15）执行erc20跨链转账，bsc=>monad
 ```
@@ -521,11 +523,57 @@ Failed to build for submodule 1: Merkle proofs are not yet supported
 Relaying message 0x6698d858b99091eb140f855e4911123fbfd84d8021a1e7dd734214b2f3bda38f
 ```
 
+## 17) 执行bnb跨链转账，bsc=>bee
+```
+root@ubuntu:~/hyperlane-registry# hyperlane warp send \
+  --symbol BNB \
+  --origin bsctestnet \
+  --destination bee \
+  --amount 10000000000000000 \
+  --relay
+Hyperlane CLI
+Multiple warp routes found for symbol BNB
+? Select from matching warp routes BNB/warp-route-bnb-deploy-config
+🚀 Sending a message for chains: bsctestnet ➡️ bee
+Running pre-flight checks for chains...
+✅ BSC Testnet signer is valid
+✅ Bee signer is valid
+✅ Chains are valid
+✅ Balances are sufficient
+Sending a message from bsctestnet to bee
+Pending https://testnet.bscscan.com/tx/0x86279d9666d6ad9e6165ada1dea20d0f1a4a62a48a02abd99d5bf47355b6e114 (waiting 1 blocks for confirmation)
+Sent transfer from sender (0x5159eA8501d3746bB07c20B5D0406bD12844D7ec) on bsctestnet to recipient (0x5159eA8501d3746bB07c20B5D0406bD12844D7ec) on bee.
+Message ID: 0xa2f0034ee8abd34cd2f2226149a03553230c93d7b9c3590b96e9e1d23a994c7e
+Explorer Link: https://explorer.hyperlane.xyz/message/0xa2f0034ee8abd34cd2f2226149a03553230c93d7b9c3590b96e9e1d23a994c7e
+Message:
+    id: "0xa2f0034ee8abd34cd2f2226149a03553230c93d7b9c3590b96e9e1d23a994c7e"
+    message: "0x030000000200000061000000000000000000000000637189c5c4027259e98c9eea6\
+      a393aef1f3a4bcc00000c74000000000000000000000000897e914031c27f679ed54910015453\
+      cdbb9ae1620000000000000000000000005159ea8501d3746bb07c20b5d0406bd12844d7ec000\
+      000000000000000000000000000000000000000000000002386f26fc10000"
+    parsed:
+      version: 3
+      nonce: 2
+      origin: 97
+      sender: "0x000000000000000000000000637189c5c4027259e98c9eea6a393aef1f3a4bcc"
+      destination: 3188
+      recipient: "0x000000000000000000000000897e914031c27f679ed54910015453cdbb9ae162"
+      body: "0x0000000000000000000000005159ea8501d3746bb07c20b5d0406bd12844d7ec000000\
+        000000000000000000000000000000000000000000002386f26fc10000"
+    
+Body:
+    recipient: "0x0000000000000000000000005159ea8501d3746bb07c20b5d0406bd12844d7ec"
+    amount: 10000000000000000
+    
+Attempting self-relay of message...
+Preparing to relay message 0xa2f0034ee8abd34cd2f2226149a03553230c93d7b9c3590b96e9e1d23a994c7e
+Relaying message 0xa2f0034ee8abd34cd2f2226149a03553230c93d7b9c3590b96e9e1d23a994c7e
+Pending https://scan.beechain.ai/tx/0x441d444ca5cbcf68ff3867aa5ba03de12fd7621eb9b56c893ab53743c0421bd8 (waiting 1 blocks for confirmation)
+Transfer was self-relayed!
+✅ Successfully sent messages for chains: bsctestnet ➡️ bee
+```
+
 #  前端bsc <==> monad 跨链请看当前vue项目代码即可
-
-
-
-
 # my-vue2-app
 
 ## Project setup
