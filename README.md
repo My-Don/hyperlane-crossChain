@@ -572,6 +572,9 @@ Pending https://scan.beechain.ai/tx/0x441d444ca5cbcf68ff3867aa5ba03de12fd7621eb9
 Transfer was self-relayed!
 ✅ Successfully sent messages for chains: bsctestnet ➡️ bee
 ```
+# usdt跨链(主网)
+# bsc => monad  https://bscscan.com/tx/0x71f51ce80a86da0a0a58ba63433c9679e98b816d36e68bae942e0032ebf07811
+# monad => bsc  https://monadscan.com/tx/0x6def235eeaf3d49e6d6a6f3e599239c2500b90f1937487565327980ec805e284
 
 #  前端bsc <==> monad 跨链请看当前vue项目代码即可
 # 已部署到线上, 网址  https://hyperlane-crosschain.vercel.app/
